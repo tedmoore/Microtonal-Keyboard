@@ -23,7 +23,7 @@ s.waitForBoot({
 	namesDict = Dictionary.new;
 	nbDict = Dictionary.new;
 	keyDisplays = Dictionary.new;
-	win = Window(/*"Katie's */"Microtonal Keyboard",Rect(0,0,1419,635));
+	win = Window("Microtonal Keyboard",Rect(0,0,1419,635));
 	win.view.decorator_(FlowLayout(win.bounds,2@2,0@0));
 	bus = Bus.audio(s,2);
 	keys = [ 97, 119, 115, 101, 100, 102, 116, 103, 121, 104, 117, 106, 107, 111, 108, 112, 59, 39, 93 ]; // unicode keys c through f# (8va * 1.5)
@@ -119,7 +119,7 @@ s.waitForBoot({
 		topHeight + bottomHeight
 	));
 	settingsDisplay.decorator_(FlowLayout(settingsDisplay.bounds));
-	StaticText(settingsDisplay,Rect(0,0,settingsDisplay.bounds.width,65)).string_(/*"Katie's */"Microtonal Keyboard").font_(Font("Helvetica",65));
+	StaticText(settingsDisplay,Rect(0,0,settingsDisplay.bounds.width,65)).string_("Microtonal Keyboard").font_(Font("Helvetica",65));
 
 	Button(settingsDisplay,Rect(0,0,100,40))
 	.states_([["Save"]])
@@ -181,9 +181,9 @@ s.waitForBoot({
 		//win.bounds.postln;
 	},vol,false,30,50);//.sliderView.canFocus_(false);
 
-	StaticText(settingsDisplay,Rect(0,0,425,40)).font_(Font("Helvetica",10)).string_(
-		"QWERTY Keyboard not working? \nHold 'command' and hit 'tab' until the you're over the 'exec' app. \nWant to quit? \n'command'+'tab' until you're over the 'Katie's Microtonal Keyboard App', then 'command + Q'"
-	);
+/*	StaticText(settingsDisplay,Rect(0,0,425,40)).font_(Font("Helvetica",10)).string_(
+		"QWERTY Keyboard not working? \nHold 'command' and hit 'tab' until the you're over the 'exec' app. \nWant to quit? \n'command'+'tab' until you're over the 'Microtonal Keyboard App', then 'command + Q'"
+	);*/
 
 /*	StaticText(settingsDisplay,Rect(0,0,220,20))
 	.string_("  (TAB) Advance Through \"Cts:\" Boxes").font_(Font("Helvetica",12));*/
@@ -249,7 +249,7 @@ s.waitForBoot({
 		});
 		centsDict.put(midi,cents);
 		freqsDict.put(midi,freq);
-		//synths.put(midi,Synth(\katiesMicrotonalKeyboard,[\freq,freq,\vel,0,\sustain,0,\t_gate,0],group));
+		//synths.put(midi,Synth(\microtonalKeyboard,[\freq,freq,\vel,0,\sustain,0,\t_gate,0],group));
 
 		if((midi % 12 == 1) ||
 			(midi % 12 == 3) ||
@@ -414,7 +414,7 @@ s.waitForBoot({
 	win.onClose_({
 		s.quit;
 		MIDIdef.freeAll;
-		//"osascript -e 'quit app \"Katies Microtonal Keyboard\"'".unixCmd;
+		//"osascript -e 'quit app \"Microtonal Keyboard\"'".unixCmd;
 	});
 
 	noteOn = {
